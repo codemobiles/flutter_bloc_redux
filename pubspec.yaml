@@ -27,6 +27,7 @@ dependencies:
 
   # my dependencies
   flutter_bloc: ^0.21.0
+  flutter_redux: ^0.5.3
 
 dev_dependencies:
   flutter_test:
