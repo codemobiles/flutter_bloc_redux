@@ -8,13 +8,16 @@ class Body extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Form(
-      key: formKey,
-      child: TabBarView(
-        children: <Widget>[
-          StudentPage(formKey: formKey,),
-          CoursePage(),
-        ],
+    return Container(
+      color: Colors.black87,
+      child: Form(
+        key: formKey,
+        child: TabBarView(
+          children: <Widget>[
+            StudentPage(formKey: formKey,),
+            CoursePage(),
+          ],
+        ),
       ),
     );
   }

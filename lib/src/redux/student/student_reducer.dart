@@ -8,6 +8,7 @@ final studentReducer = combineReducers<Student>([
   TypedReducer<Student, UpdateStudentAction>(updateStudent),
   TypedReducer<Student, UpdateCourseStudentAction>(updateCourse),
   TypedReducer<Student, DeleteCourseStudentAction>(deleteCourse),
+  TypedReducer<Student, AddCourseStudentAction>(addCourse),
 ]);
 
 Student updateStudent(Student student, UpdateStudentAction event) {
@@ -36,3 +37,14 @@ Student deleteCourse(Student student, DeleteCourseStudentAction event) {
     courses: student.courses..removeAt(event.index),
   );
 }
+
+
+Student addCourse(Student student, AddCourseStudentAction event) {
+  return Student(
+    name: student.name,
+    company: student.company,
+    courses: student.courses..add(Course())
+  );
+}
+
+

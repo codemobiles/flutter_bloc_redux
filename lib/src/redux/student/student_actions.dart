@@ -31,5 +31,10 @@ class DeleteCourseStudentAction{
   String toString() => "DeleteCourseStudent{index: $index}";
 }
 
-// add
+class AddCourseStudentAction{
+  @override
+  String toString() => "AddCourseStudentAction";
+}
+
+
 
