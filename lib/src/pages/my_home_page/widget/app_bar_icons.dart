@@ -1,5 +1,6 @@
 import 'package:cm_student_redux/src/models/app_state.dart';
 import 'package:cm_student_redux/src/models/student.dart';
+import 'package:cm_student_redux/src/redux/student/student_actions.dart';
 import 'package:cm_student_redux/src/widget/simple_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_redux/flutter_redux.dart';
@@ -24,6 +25,7 @@ class AppBarIcons extends StatelessWidget {
             context: context,
             barrierDismissible: false,
             builder: (context) {
+              _viewModel.onSaveStudent();
               return SimpleDialogCustom(
                 title: "Save Profile",
                 content: _viewModel.student.toString(),
@@ -42,13 +44,21 @@ class AppBarIcons extends StatelessWidget {
 
 class _ViewModel {
   final Student student; // state
+  final Function() onSaveStudent; // action
 
-  _ViewModel({this.student});
+  _ViewModel({
+    this.student,
+    this.onSaveStudent,
+  });
 
   static _ViewModel fromStore(Store<AppState> store) {
+     _onSaveStudentAction(){
+       store.dispatch(SaveStudentAction());
+     }
+
     return _ViewModel(
-        student: store.state.student,
+      student: store.state.student,
+      onSaveStudent: _onSaveStudentAction
     );
   }
 }
-

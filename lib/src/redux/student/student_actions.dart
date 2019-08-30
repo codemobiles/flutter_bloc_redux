@@ -36,5 +36,10 @@ class AddCourseStudentAction{
   String toString() => "AddCourseStudentAction";
 }
 
+class SaveStudentAction{
+  @override
+  String toString() => "SaveStudentAction";
+}
+
 
 
